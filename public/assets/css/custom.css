@@ -1,0 +1,21 @@
+/**
+ *
+ * You can write your CSS code here, DO NOT touch the default JavaScript file
+ * because it will make it harder for you to update.
+ * 
+ */
+
+/*# sourceMappingURL=custom.css.map */
+
+.navbar-right {
+    display: flex;
+    border: solid 1px black;
+}
+
+.navbar-right > :nth-child(2) {
+    margin-right: auto;
+}
+
+li{
+    padding: 10px;
+}
