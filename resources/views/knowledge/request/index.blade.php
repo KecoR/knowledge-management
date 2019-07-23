@@ -51,12 +51,12 @@
                                                     <td>{{ $loop->iteration }}</td>
                                                     <td>{{ $req->user->username }}</td>
                                                     @if (!empty($req->knowledge_parent_id))
-                                                        <td>{{ $req->kategori->knowledge_name }}</td>
+                                                        <td>{{ $req->kategori->knowledge_name ? $req->kategori->knowledge_name : "Kategori telah dihapus" }}</td>
                                                     @else
                                                         <td>{{ $req->knowledge_parent_name }}</td>
                                                     @endif
                                                     @if (!empty($req->knowledge_child_id))
-                                                        <td>{{ $req->child->child_name }}</td>
+                                                        <td>{{ $req->child->child_name ? $req->child->child_name : "Fungsi telah dihapus" }}</td>
                                                     @else
                                                         <td>{{ $req->knowledge_child_name }}</td>
                                                     @endif
