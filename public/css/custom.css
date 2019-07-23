@@ -7,7 +7,7 @@
     background-color: #fff;
     z-index: 880;
     left: 0; 
-    background-color: #6777ef;
+    background-color: #0048FF;
 }
 
 .main-sidebar .sidebar-brand {
@@ -42,8 +42,8 @@
       display: block; }
       .main-sidebar .sidebar-menu li.menu-header {
         padding: 3px 15px;
-        color: #bcc1c6;
-        font-size: 10px;
+        color: white;
+        font-size: 13px;
         text-transform: uppercase;
         letter-spacing: 1.3px;
         font-weight: 600; }
@@ -57,7 +57,8 @@
         padding: 0 20px;
         width: 100%;
         letter-spacing: .3px;
-        color: #868e96;
+        color: white;
+        background-color: #007bff;
         text-decoration: none; }
         .main-sidebar .sidebar-menu li a .badge {
           float: right;
@@ -71,7 +72,8 @@
           margin-top: 3px;
           width: 100%; }
         .main-sidebar .sidebar-menu li a:hover {
-          background-color: #fcfcfd; }
+          background-color: white;
+          color: black; }
       .main-sidebar .sidebar-menu li.active a {
         font-weight: 600;
         background-color: #fcfcfd; }
@@ -101,12 +103,14 @@
         box-shadow: none;
         background-color: transparent; }
         .main-sidebar .sidebar-menu li ul.dropdown-menu li a {
-          color: #868e96;
+          color: white;
+          background-color: 64a1f4;
           height: 40px;
           padding-left: 65px;
-          font-weight: 150; }
+          font-weight: 400; }
           .main-sidebar .sidebar-menu li ul.dropdown-menu li a:hover {
-            background-color: inherit; }
+            background-color: inherit;
+            color: inherit; }
         .main-sidebar .sidebar-menu li ul.dropdown-menu li a i {
           margin-top: 1px;
           text-align: center; }

@@ -57,3 +57,8 @@ Route::get('/knowledge/deleteCat/{id}', 'KnowledgeController@deleteKnowledgeCat'
 Route::get('/knowledge/deleteFungsi/{id}', 'KnowledgeController@deleteKnowledgeFungsi')->name('knowledge.deleteFungsi');
 Route::get('/knowledge/detailInfo/{id}', 'KnowledgeController@detailKnowledgeInfo')->name('knowledge.detailInfo');
 Route::get('/knowledge/deleteInfo/{id}', 'KnowledgeController@deleteKnowledgeInfo')->name('knowledge.deleteInfo');
+
+//Manage User
+Route::post('/users/editUser', 'UserController@editUser')->name('users.editUser');
+Route::get('/users/deleteUser/{id}', 'UserController@deleteUser')->name('users.deleteUser');
+Route::resource("users", "UserController");

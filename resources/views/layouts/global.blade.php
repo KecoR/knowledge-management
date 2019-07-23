@@ -58,8 +58,8 @@
   <header class="header_area">
     <div class="main_menu">
       <nav class="navbar navbar-expand-lg navbar-light">
-        <div class="container box_1620">
-          <a class="navbar-brand logo_h" href="{{ route('home') }}"><img style="width: 200px; margin: 0; padding: 5px 0;" src="{{ asset('assets/images/LOGO-UEU.png') }}" alt="esgul"></a>
+        <div class="container box_1620" style="margin-left: 40px;">
+          <a class="navbar-brand logo_h" href="{{ route('home') }}"><img style="width: 200px; margin: 5px 0; padding: 5px 0;" src="{{ asset('assets/images/LOGO-UEU.png') }}" alt="esgul"></a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>

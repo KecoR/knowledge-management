@@ -56,16 +56,11 @@
                                             Tolong isi nama fungsi
                                             </div>
                                         </div>
-
-                                        <div class="form-group" id="newfungsi">
-                                            
-                                        </div>
-
-                                        <div class="form-group">
-                                            <button class="btn btn-primary btn-lg btn-block">Simpan</button>
-                                        </div>
                                     </div>
                                     <div class="col-md-6">
+                                        <div class="form-group" id="newfungsi">
+                                        
+                                        </div>
                                         <div class="form-group">
                                             <div class="d-block">
                                                 <label for="info" class="control-label">Informasi</label>
@@ -75,15 +70,19 @@
                                             Tolong isi informasi
                                             </div>
                                         </div>
-                                    
+                                    </div>
+                                    <div class="col-md-12">
                                         <div class="form-group">
                                             <div class="d-block">
                                                 <label for="content" class="control-label">Isi</label>
                                             </div>
-                                            <textarea name="content" id="content" class="form-control"  tabindex="4" required></textarea>
+                                            <textarea name="content" id="content" class="test" cols="40" rows="30" tabindex="4" required></textarea>
                                             <div class="invalid-feedback">
                                             Tolong isi isian dari knowledge
                                             </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <button class="btn btn-primary btn-lg btn-block">Simpan</button>
                                         </div>
                                     </div>
                                 </div>
@@ -111,8 +110,8 @@
                 let label1 = '<div class="d-block"><label for="child" class="control-label">Nama Fungsi</label></div>';
                 let child = '<input id="text" type="text" class="form-control" name="newcat" tabindex="3" required>';
                 let child1 = '<input id="text" type="text" class="form-control" name="fungsi" tabindex="3" required>';
-                $("#fungsi").append(label1);
-                $("#fungsi").append(child1);
+                $("#newfungsi").append(label1);
+                $("#newfungsi").append(child1);
                 $("#newknowledge").append(label);
                 $("#newknowledge").append(child);
             } else {
@@ -142,6 +141,8 @@
                         let child1 = '<input id="text" type="text" class="form-control" name="newchild" tabindex="3" required>';
                         $("#newfungsi").append(label1);
                         $("#newfungsi").append(child1);
+                    } else {
+                        $("#newfungsi").empty();
                     }
                 });
             }

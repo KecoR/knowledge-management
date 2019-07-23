@@ -49,7 +49,7 @@
                                             @foreach ($reqs as $req)
                                                 <tr>
                                                     <td>{{ $loop->iteration }}</td>
-                                                    <td>{{ $req->user->full_name }}</td>
+                                                    <td>{{ $req->user->username }}</td>
                                                     @if (!empty($req->knowledge_parent_id))
                                                         <td>{{ $req->kategori->knowledge_name }}</td>
                                                     @else

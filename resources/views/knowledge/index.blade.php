@@ -6,7 +6,6 @@
       <div class="main-sidebar ">
         <aside id="sidebar-wrapper">
             <ul class="sidebar-menu">
-                @if (\Auth::user()->level == "ADMIN")
                     <li class="menu-header"></li>
                     <li class="menu-header">List Knowledge</li>
                         @foreach ($knowledges as $knowledge)
@@ -24,9 +23,14 @@
                             @endif
                         @endforeach
                     </li>
+                @if (\Auth::user()->level == "ADMIN")
                     <li class="menu-header">Manage Knowledge</li>
                     <li class="dropdown nav-color">
                         <a href="{{ route('knowledge.manage') }}" class="nav-link"><span>Manage Knowledge</span></a>
+                    </li>
+                    <li class="menu-header">Manage User</li>
+                    <li class="dropdown nav-color">
+                        <a href="{{ route('users.index') }}" class="nav-link"><span>Manage User</span></a>
                     </li>
                 @else
                     <li class="menu-header">ASK Knowledge</li>

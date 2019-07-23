@@ -26,67 +26,66 @@
                             <form method="POST" id="myForm" action="{{ route('knowledge.saveAsk') }}" class="needs-validation" novalidate="">
                                 @csrf
                                 <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="knowledge">Nama Kategori</label>
-                                            <select name="knowledge" id="knowledge" class="form-control" tabindex="1" required autofocus>
-                                                <option value="" selected disabled>Pilih Kategori</option>
-                                                @foreach ($knowledges as $knowledge)
-                                                    <option value="{{ $knowledge->id }}">{{ $knowledge->knowledge_name }}</option>
-                                                @endforeach
-                                                <option value="new">Kategori Baru</option>
-                                            </select>
-                                            <div class="invalid-feedback">
-                                                Tolong pilih kategori
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="knowledge">Nama Kategori</label>
+                                                <select name="knowledge" id="knowledge" class="form-control" tabindex="1" required autofocus>
+                                                    <option value="" selected disabled>Pilih Kategori</option>
+                                                    @foreach ($knowledges as $knowledge)
+                                                        <option value="{{ $knowledge->id }}">{{ $knowledge->knowledge_name }}</option>
+                                                    @endforeach
+                                                    <option value="new">Kategori Baru</option>
+                                                </select>
+                                                <div class="invalid-feedback">
+                                                    Tolong pilih kategori
+                                                </div>
+                                            </div>
+            
+                                            <div class="form-group" id="newknowledge">
+                                                
+                                            </div>
+                                        
+                                            <div class="form-group" id="fungsi">
+                                                <div class="d-block">
+                                                    <label for="child" class="control-label">Nama Fungsi</label>
+                                                </div>
+                                                <select name="child" id="child" class="form-control" tabindex="2" required autofocus>
+                                                    <option value="">Pilih kategori terlebih dahulu</option>
+                                                </select>
+                                                <div class="invalid-feedback">
+                                                Tolong isi nama fungsi
+                                                </div>
                                             </div>
                                         </div>
-        
-                                        <div class="form-group" id="newknowledge">
+                                        <div class="col-md-6">
+                                            <div class="form-group" id="newfungsi">
                                             
-                                        </div>
-                                    
-                                        <div class="form-group" id="fungsi">
-                                            <div class="d-block">
-                                                <label for="child" class="control-label">Nama Fungsi</label>
                                             </div>
-                                            <select name="child" id="child" class="form-control" tabindex="2" required autofocus>
-                                                <option value="">Pilih kategori terlebih dahulu</option>
-                                            </select>
-                                            <div class="invalid-feedback">
-                                            Tolong isi nama fungsi
+                                            <div class="form-group">
+                                                <div class="d-block">
+                                                    <label for="info" class="control-label">Informasi</label>
+                                                </div>
+                                                <input id="text" type="text" class="form-control" name="info" tabindex="3" required>
+                                                <div class="invalid-feedback">
+                                                Tolong isi informasi
+                                                </div>
                                             </div>
                                         </div>
-
-                                        <div class="form-group" id="newfungsi">
-                                            
-                                        </div>
-
-                                        <div class="form-group">
-                                            <button class="btn btn-primary btn-lg btn-block">Simpan</button>
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <div class="d-block">
+                                                    <label for="content" class="control-label">Isi</label>
+                                                </div>
+                                                <textarea name="content" id="content" class="test" cols="40" rows="30" tabindex="4" required></textarea>
+                                                <div class="invalid-feedback">
+                                                Tolong isi isian dari knowledge
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <button class="btn btn-primary btn-lg btn-block">Simpan</button>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <div class="d-block">
-                                                <label for="info" class="control-label">Informasi</label>
-                                            </div>
-                                            <input id="text" type="text" class="form-control" name="info" tabindex="3" required>
-                                            <div class="invalid-feedback">
-                                            Tolong isi informasi
-                                            </div>
-                                        </div>
-                                    
-                                        <div class="form-group">
-                                            <div class="d-block">
-                                                <label for="content" class="control-label">Isi</label>
-                                            </div>
-                                            <textarea name="content" id="content" class="form-control"  tabindex="4" required></textarea>
-                                            <div class="invalid-feedback">
-                                            Tolong isi isian dari knowledge
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
                             </form>
                         </div>
                     </div>
