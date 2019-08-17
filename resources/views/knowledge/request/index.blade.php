@@ -56,7 +56,7 @@
                                                         <td>{{ $req->knowledge_parent_name }}</td>
                                                     @endif
                                                     @if (!empty($req->knowledge_child_id))
-                                                        <td>{{ $req->child->child_name ? $req->child->child_name : "Fungsi telah dihapus" }}</td>
+                                                        <td>{{ $req->child != NULL ? $req->child->child_name : "Fungsi telah dihapus" }}</td>
                                                     @else
                                                         <td>{{ $req->knowledge_child_name }}</td>
                                                     @endif

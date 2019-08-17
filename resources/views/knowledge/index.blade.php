@@ -32,17 +32,24 @@
                     <li class="dropdown nav-color">
                         <a href="{{ route('users.index') }}" class="nav-link"><span>Manage User</span></a>
                     </li>
+                    <li class="menu-header">Request List</li>
+                    <li class="dropdown nav-color">
+                        <a href="{{ route('knowledge.requestList') }}" class="nav-link"><span>Request List</span></a>
+                    </li>
+                    <li class="menu-header">Log Activity</li>
+                    <li class="dropdown nav-color">
+                        <a href="{{ route('knowledge.log') }}" class="nav-link"><span>Log Activity</span></a>
+                    </li>
                 @else
-                    <li class="menu-header">ASK Knowledge</li>
+                    <li class="menu-header">Request Knowledge</li>
                     <li class="dropdown nav-color">
                         <a href="{{ route('knowledge.ask') }}" class="nav-link"><span>ASK Knowledge</span></a>
                     </li>
+                    <li class="dropdown nav-color">
+                        <a href="{{ route('knowledge.requestList') }}" class="nav-link"><span>Request List</span></a>
+                    </li>
                     </li>  
                 @endif
-                <li class="menu-header">Request List</li>
-                <li class="dropdown nav-color">
-                    <a href="{{ route('knowledge.requestList') }}" class="nav-link"><span>Request List</span></a>
-                </li>
             </ul>
        </aside>
       </div>

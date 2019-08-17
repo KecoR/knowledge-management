@@ -50,6 +50,7 @@
   <!-- <link rel="stylesheet" href="assets/css/style.css"> -->
   <link rel="stylesheet" href="{{ asset('assets/css/components.css') }}">
   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
+  <link rel="stylesheet" href="{{ asset('cle/jquery.cleditor.css') }}">
 
   <!-- Start GA -->
 </head>
@@ -74,7 +75,7 @@
                 @else
                   <li class="nav-item"><a class="nav-link" href="{{ route('login') }}">Knowledge</a></li>  
                 @endif
-                <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ route('contact') }}">Contact</a></li>
                 {{-- <li class="nav-item"><a class="nav-link" href="#">Logout</a></li> --}}
                 @if (Auth::user())
                     <li class="nav-item">
@@ -175,6 +176,7 @@
   <script src="{{ asset('assets/js/scripts.js') }}"></script>
   <script src="{{ asset('assets/js/custom.js') }}"></script>
   <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
+  <script src="{{ asset('cle/jquery.cleditor.js') }}"></script>
   <!-- <script src="assets/js/jquery.js"></script> -->
   <script>
   $(document).ready(function(){

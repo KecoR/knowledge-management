@@ -105,7 +105,7 @@
                 $("#info_id").val(data.info.id);
                 $("#info").val(data.info.info_name);
                 $("#content").val(data.content.content);
-                tinymce.init({selector:'textarea#content'});
+                $('#content').cleditor();
                 $("#editModal").modal('show');
             })
         });

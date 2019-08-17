@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jul 20, 2019 at 02:43 AM
+-- Generation Time: Aug 17, 2019 at 04:55 PM
 -- Server version: 5.7.24
 -- PHP Version: 7.2.11
 
@@ -77,8 +77,11 @@ CREATE TABLE `tblknowledge` (
 --
 
 INSERT INTO `tblknowledge` (`id`, `knowledge_name`, `created_at`, `updated_at`) VALUES
-(1, 'Website Universitas', NULL, '2019-07-18 18:35:32'),
-(4, 'Website Fakultas', '2019-07-16 06:22:58', '2019-07-16 06:22:58');
+(5, 'Kategori 1', '2019-08-14 20:26:31', '2019-08-14 20:26:31'),
+(6, 'Kategori 2', '2019-08-14 20:30:58', '2019-08-14 20:30:58'),
+(7, 'Kategori 3', '2019-08-14 20:47:17', '2019-08-14 20:47:17'),
+(8, 'Kategori 4 Update', '2019-08-14 20:48:12', '2019-08-14 20:49:15'),
+(9, 'Kategori 5', '2019-08-17 08:59:22', '2019-08-17 08:59:22');
 
 -- --------------------------------------------------------
 
@@ -99,8 +102,12 @@ CREATE TABLE `tblknowledge_child` (
 --
 
 INSERT INTO `tblknowledge_child` (`id`, `child_name`, `knowledge_id`, `created_at`, `updated_at`) VALUES
-(1, 'Daftar', 1, NULL, NULL),
-(4, 'Mahasiswa Baru Fakultas', 4, '2019-07-18 00:33:17', '2019-07-18 19:20:15');
+(5, 'Fungsi 1', 5, '2019-08-14 20:26:31', '2019-08-14 20:26:31'),
+(6, 'Fungsi 2', 6, '2019-08-14 20:30:58', '2019-08-14 20:30:58'),
+(7, 'Fungsi 2', 5, '2019-08-14 20:31:11', '2019-08-14 20:31:11'),
+(8, 'Fungsi 3', 7, '2019-08-14 20:47:17', '2019-08-14 20:47:17'),
+(9, 'Fungsi 4', 8, '2019-08-14 20:48:12', '2019-08-14 20:48:12'),
+(10, 'Fungsi 1', 9, '2019-08-17 08:59:22', '2019-08-17 08:59:22');
 
 -- --------------------------------------------------------
 
@@ -112,6 +119,7 @@ CREATE TABLE `tblknowledge_content` (
   `id` int(10) UNSIGNED NOT NULL,
   `content` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `info_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -120,8 +128,14 @@ CREATE TABLE `tblknowledge_content` (
 -- Dumping data for table `tblknowledge_content`
 --
 
-INSERT INTO `tblknowledge_content` (`id`, `content`, `info_id`, `created_at`, `updated_at`) VALUES
-(7, '<p>123123</p>\r\n<p>123</p>', 8, '2019-07-18 00:33:17', '2019-07-18 19:57:59');
+INSERT INTO `tblknowledge_content` (`id`, `content`, `info_id`, `user_id`, `created_at`, `updated_at`) VALUES
+(1, '<p>Test1</p>\r\n<p>Test1</p>\r\n<p>Test1</p>\r\n<p>Test1</p>\r\n<p>Test1</p>', 9, 1, '2019-08-14 20:26:31', '2019-08-14 20:26:31'),
+(2, '<p>Test</p>\r\n<p>Test</p>\r\n<p>Test</p>\r\n<p>Test</p>', 10, 2, '2019-08-14 20:30:58', '2019-08-14 20:30:58'),
+(3, '<p>Test</p>\r\n<p>Test</p>\r\n<p>Test</p>\r\n<p>Test</p>', 11, 2, '2019-08-14 20:31:05', '2019-08-14 20:31:05'),
+(4, '<p>Test</p>\r\n<p>Test</p>\r\n<p>Test</p>\r\n<p>Test</p>', 12, 2, '2019-08-14 20:31:11', '2019-08-14 20:31:11'),
+(5, '<p>Test</p>\r\n<p>Test</p>\r\n<p>Test</p>\r\n<p>Test</p>', 13, 1, '2019-08-14 20:47:17', '2019-08-14 20:47:17'),
+(6, '<p>Test</p>\r\n<p>Test</p>\r\n<p>Test</p>', 14, 1, '2019-08-14 20:48:12', '2019-08-14 20:48:12'),
+(7, '<div style=\"text-align: center;\"><img src=\"https://upload.wikimedia.org/wikipedia/id/e/e7/Uesaunggul.jpg\"></div><div style=\"text-align: left;\"><span style=\"font-weight: bold;\">asdasdasd</span></div><div style=\"text-align: left;\"><span style=\"font-style: italic;\">asdasdasd</span></div><div style=\"text-align: left;\"><span style=\"text-decoration: underline;\">asdasdasd</span></div><div style=\"text-align: left;\"><span style=\"text-decoration: line-through;\">asdasdasd</span></div><div style=\"text-align: left;\"><span style=\"text-decoration: line-through;\"><sub>a</sub>a</span></div><div style=\"text-align: left;\"><span style=\"text-decoration: line-through;\">a<sup>a</sup></span></div><div style=\"text-align: left;\"><sup><span style=\"font-family: Arial Black;\">as</span></sup></div><div style=\"text-align: left;\"><sup><span style=\"font-family: Arial Black;\"><font size=\"7\">asd</font></span></sup></div><div style=\"text-align: left;\"><h1><sup><span style=\"font-family: Arial Black;\"><font size=\"7\">asdasd</font></span></sup></h1><div><span style=\"color: rgb(255, 204, 102);\">asd</span></div><div><span style=\"color: rgb(255, 204, 102);\"><span style=\"background-color: rgb(255, 153, 102);\">asdasdasd</span></span></div><div><span style=\"color: rgb(255, 204, 102);\"><span style=\"background-color: rgb(255, 153, 102);\"><span style=\"color: rgb(0, 0, 0);\"><br></span></span></span></div><div><ul><li><span style=\"color: rgb(255, 204, 102);\"><span style=\"background-color: rgb(255, 153, 102);\"><span style=\"color: rgb(0, 0, 0);\">asdasd</span></span></span></li><li><span style=\" color: rgb(255, 204, 102);\"><span style=\" background-color: rgb(255, 153, 102);\"><span style=\" color: rgb(0, 0, 0);\">as</span></span></span></li></ul><div><ol><li>asdasd</li><li>asdasd</li></ol></div></div></div>', 15, 1, '2019-08-17 08:59:22', '2019-08-17 08:59:22');
 
 -- --------------------------------------------------------
 
@@ -142,7 +156,36 @@ CREATE TABLE `tblknowledge_info` (
 --
 
 INSERT INTO `tblknowledge_info` (`id`, `info_name`, `child_id`, `created_at`, `updated_at`) VALUES
-(8, 'Daftar Mahasiswa1', 4, '2019-07-18 00:33:17', '2019-07-18 19:57:59');
+(9, 'Informasi 1', 5, '2019-08-14 20:26:31', '2019-08-14 20:26:31'),
+(10, 'Informasi 2', 6, '2019-08-14 20:30:58', '2019-08-14 20:30:58'),
+(11, 'Informasi 1.1', 5, '2019-08-14 20:31:05', '2019-08-14 20:31:05'),
+(12, 'Informasi 2', 7, '2019-08-14 20:31:11', '2019-08-14 20:31:11'),
+(13, 'Informasi 3', 8, '2019-08-14 20:47:17', '2019-08-14 20:47:17'),
+(14, 'Informasi 4', 9, '2019-08-14 20:48:12', '2019-08-14 20:48:12'),
+(15, 'Informasi 1', 10, '2019-08-17 08:59:22', '2019-08-17 08:59:22');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbllog`
+--
+
+CREATE TABLE `tbllog` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `activity` varchar(150) NOT NULL,
+  `date` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tbllog`
+--
+
+INSERT INTO `tbllog` (`id`, `user_id`, `activity`, `date`) VALUES
+(1, 1, 'Add Knowledge', '2019-08-15 03:48:23'),
+(2, 1, 'Delete Category', '2019-08-15 03:48:45'),
+(3, 1, 'Edit Knowledge', '2019-08-15 03:49:15'),
+(4, 1, 'Add Knowledge', '2019-08-17 15:59:22');
 
 -- --------------------------------------------------------
 
@@ -153,9 +196,9 @@ INSERT INTO `tblknowledge_info` (`id`, `info_name`, `child_id`, `created_at`, `u
 CREATE TABLE `tblrequest` (
   `id` int(10) UNSIGNED NOT NULL,
   `user_id` int(11) NOT NULL,
-  `knowledge_parent_id` int(11) DEFAULT NULL,
+  `knowledge_parent_id` int(10) DEFAULT NULL,
   `knowledge_parent_name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `knowledge_child_id` int(11) DEFAULT NULL,
+  `knowledge_child_id` int(10) DEFAULT NULL,
   `knowledge_child_name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `info_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `content` text COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -171,9 +214,9 @@ CREATE TABLE `tblrequest` (
 --
 
 INSERT INTO `tblrequest` (`id`, `user_id`, `knowledge_parent_id`, `knowledge_parent_name`, `knowledge_child_id`, `knowledge_child_name`, `info_name`, `content`, `tgl_request`, `tgl_accept`, `status`, `created_at`, `updated_at`) VALUES
-(1, 1, 1, NULL, 1, NULL, 'Daftar Sendiri', '123asd', '2019-07-16 13:50:44', NULL, '-1', '2019-07-16 06:50:44', '2019-07-18 00:19:10'),
-(2, 1, 1, NULL, NULL, 'Mahasiswa Baru', 'Daftar Mahasiswa', '123123', '2019-07-16 13:51:54', NULL, '0', '2019-07-16 06:51:54', '2019-07-16 06:51:54'),
-(5, 1, NULL, 'Website Keuangan', NULL, 'Pemasukan', 'Fakultas', 'fak123', '2019-07-16 13:56:41', '2019-07-18 07:37:39', '1', '2019-07-16 06:56:41', '2019-07-18 00:37:39');
+(6, 2, NULL, 'Kategori 2', NULL, 'Fungsi 2', 'Informasi 2', '<p>Test</p>\r\n<p>Test</p>\r\n<p>Test</p>\r\n<p>Test</p>', '2019-08-15 03:29:50', '2019-08-15 03:30:58', '1', '2019-08-14 20:29:50', '2019-08-14 20:30:58'),
+(7, 2, 5, NULL, 5, NULL, 'Informasi 1.1', '<p>Test</p>\r\n<p>Test</p>\r\n<p>Test</p>\r\n<p>Test</p>', '2019-08-15 03:30:10', '2019-08-15 03:31:05', '1', '2019-08-14 20:30:10', '2019-08-14 20:31:05'),
+(8, 2, 5, NULL, NULL, 'Fungsi 2', 'Informasi 2', '<p>Test</p>\r\n<p>Test</p>\r\n<p>Test</p>\r\n<p>Test</p>', '2019-08-15 03:30:32', '2019-08-15 03:31:11', '1', '2019-08-14 20:30:32', '2019-08-14 20:31:11');
 
 -- --------------------------------------------------------
 
@@ -182,7 +225,7 @@ INSERT INTO `tblrequest` (`id`, `user_id`, `knowledge_parent_id`, `knowledge_par
 --
 
 CREATE TABLE `users` (
-  `id` int(10) UNSIGNED NOT NULL,
+  `id` int(10) NOT NULL,
   `username` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `full_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -243,10 +286,19 @@ ALTER TABLE `tblknowledge_info`
   ADD KEY `tblknowledge_info_ibfk_1` (`child_id`);
 
 --
+-- Indexes for table `tbllog`
+--
+ALTER TABLE `tbllog`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `tblrequest`
 --
 ALTER TABLE `tblrequest`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `tblrequest_ibfk_1` (`user_id`),
+  ADD KEY `tblrequest_ibfk_2` (`knowledge_child_id`),
+  ADD KEY `knowledge_parent_id` (`knowledge_parent_id`);
 
 --
 -- Indexes for table `users`
@@ -268,37 +320,43 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `tblknowledge`
 --
 ALTER TABLE `tblknowledge`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `tblknowledge_child`
 --
 ALTER TABLE `tblknowledge_child`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `tblknowledge_content`
 --
 ALTER TABLE `tblknowledge_content`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `tblknowledge_info`
 --
 ALTER TABLE `tblknowledge_info`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+
+--
+-- AUTO_INCREMENT for table `tbllog`
+--
+ALTER TABLE `tbllog`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `tblrequest`
 --
 ALTER TABLE `tblrequest`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Constraints for dumped tables
@@ -321,6 +379,14 @@ ALTER TABLE `tblknowledge_content`
 --
 ALTER TABLE `tblknowledge_info`
   ADD CONSTRAINT `tblknowledge_info_ibfk_1` FOREIGN KEY (`child_id`) REFERENCES `tblknowledge_child` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `tblrequest`
+--
+ALTER TABLE `tblrequest`
+  ADD CONSTRAINT `tblrequest_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `tblrequest_ibfk_2` FOREIGN KEY (`knowledge_child_id`) REFERENCES `tblknowledge_child` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `tblrequest_ibfk_3` FOREIGN KEY (`knowledge_parent_id`) REFERENCES `tblknowledge` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

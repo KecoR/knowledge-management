@@ -11,6 +11,7 @@ use App\TblknowledgeChild;
 use App\TblknowledgeInfo;
 use App\TblknowledgeContent;
 use App\Tblrequest;
+use App\Tbllog;
 
 class KnowledgeController extends Controller
 {
@@ -58,6 +59,7 @@ class KnowledgeController extends Controller
         $fungsi = $request->get('child');
         $info = $request->get('info');
         $content = $request->get('content');
+        $user = \Auth::user()->id;
         
         if($cekKnowledge == "new") {
             $knowledge = $request->get('newcat');
@@ -80,7 +82,14 @@ class KnowledgeController extends Controller
             $new_content = new TblknowledgeContent;
             $new_content->content = $content;
             $new_content->info_id = $new_info->id;
+            $new_content->user_id = $user;
             $new_content->save();
+
+            $new_log = new Tbllog;
+            $new_log->user_id = \Auth::user()->id;
+            $new_log->activity = "Add Knowledge";
+            $new_log->date = Carbon::now();
+            $new_log->save();
 
             return redirect()->back()->with('status', 'Knowledge berhasil ditambah.');
         } else {
@@ -100,7 +109,14 @@ class KnowledgeController extends Controller
                 $new_content = new TblknowledgeContent;
                 $new_content->content = $content;
                 $new_content->info_id = $new_info->id;
+                $new_content->user_id = $user;
                 $new_content->save();
+
+                $new_log = new Tbllog;
+                $new_log->user_id = \Auth::user()->id;
+                $new_log->activity = "Add Knowledge";
+                $new_log->date = Carbon::now();
+                $new_log->save();
 
                 return redirect()->back()->with('status', 'Knowledge berhasil ditambah.');
             } else {
@@ -112,7 +128,14 @@ class KnowledgeController extends Controller
                 $new_content = new TblknowledgeContent;
                 $new_content->content = $content;
                 $new_content->info_id = $new_info->id;
+                $new_content->user_id = $user;
                 $new_content->save();
+
+                $new_log = new Tbllog;
+                $new_log->user_id = \Auth::user()->id;
+                $new_log->activity = "Add Knowledge";
+                $new_log->date = Carbon::now();
+                $new_log->save();
 
                 return redirect()->back()->with('status', 'Knowledge berhasil ditambah.');
             }
@@ -150,6 +173,12 @@ class KnowledgeController extends Controller
         $req->status = '0';
         $req->save();
 
+        $new_log = new Tbllog;
+        $new_log->user_id = \Auth::user()->id;
+        $new_log->activity = "Request Knowledge";
+        $new_log->date = Carbon::now();
+        $new_log->save();
+
         return redirect()->back()->with('status', 'Knowledge berhasil disimpan, mohon tunggu konfirmasi dari admin.');
 
     }
@@ -177,6 +206,7 @@ class KnowledgeController extends Controller
         $info = $request->get('info');
         $content = $request->get('content');
         $newfungsi = $request->get('fungsi');
+        $user = $request->get('user_id');
 
         if(!empty($cat)){
             if(!empty($fungsi)) {
@@ -188,6 +218,7 @@ class KnowledgeController extends Controller
                 $new_content = new TblknowledgeContent;
                 $new_content->content = $content;
                 $new_content->info_id = $new_info->id;
+                $new_content->user_id = $user;
                 $new_content->save();
 
                 $id = $request->get('id');
@@ -196,6 +227,12 @@ class KnowledgeController extends Controller
                 $req->tgl_accept = Carbon::now();
                 $req->status = '1';
                 $req->save();
+
+                $new_log = new Tbllog;
+                $new_log->user_id = \Auth::user()->id;
+                $new_log->activity = "Accept Knowledge";
+                $new_log->date = Carbon::now();
+                $new_log->save();
 
                 return redirect()->route('knowledge.requestList')->with('status', 'Knowledge berhasil diterima.');
             } else {
@@ -212,6 +249,7 @@ class KnowledgeController extends Controller
                 $new_content = new TblknowledgeContent;
                 $new_content->content = $content;
                 $new_content->info_id = $new_info->id;
+                $new_content->user_id = $user;
                 $new_content->save();
 
                 $id = $request->get('id');
@@ -220,6 +258,12 @@ class KnowledgeController extends Controller
                 $req->tgl_accept = Carbon::now();
                 $req->status = '1';
                 $req->save();
+
+                $new_log = new Tbllog;
+                $new_log->user_id = \Auth::user()->id;
+                $new_log->activity = "Accept Knowledge";
+                $new_log->date = Carbon::now();
+                $new_log->save();
 
                 return redirect()->route('knowledge.requestList')->with('status', 'Knowledge berhasil diterima.');
             }
@@ -244,6 +288,7 @@ class KnowledgeController extends Controller
             $new_content = new TblknowledgeContent;
             $new_content->content = $content;
             $new_content->info_id = $new_info->id;
+            $new_content->user_id = $user;
             $new_content->save();
 
             $id = $request->get('id');
@@ -253,6 +298,12 @@ class KnowledgeController extends Controller
             $req->status = '1';
             $req->save();
 
+            $new_log = new Tbllog;
+            $new_log->user_id = \Auth::user()->id;
+            $new_log->activity = "Accept Knowledge";
+            $new_log->date = Carbon::now();
+            $new_log->save();
+
             return redirect()->route('knowledge.requestList')->with('status', 'Knowledge berhasil diterima.');
         }
     }
@@ -260,6 +311,12 @@ class KnowledgeController extends Controller
     public function requestTolak($id)
     {
         Tblrequest::where('id', $id)->update(['status' => -1]);
+
+        $new_log = new Tbllog;
+        $new_log->user_id = \Auth::user()->id;
+        $new_log->activity = "Reject Knowledge";
+        $new_log->date = Carbon::now();
+        $new_log->save();
 
         return redirect()->route('knowledge.requestList')->with('status', 'Knowledge berhasil di tolak.');
     }
@@ -293,12 +350,24 @@ class KnowledgeController extends Controller
 
         $knowledge->delete();
 
+        $new_log = new Tbllog;
+        $new_log->user_id = \Auth::user()->id;
+        $new_log->activity = "Delete Category";
+        $new_log->date = Carbon::now();
+        $new_log->save();
+
         return redirect()->back()->with('status', 'Fungsi berhasil dihapus.');
     }
 
     public function deleteKnowledgeFungsi($id)
     {
         $fungsi = TblknowledgeChild::where('id', $id)->first();
+
+        $new_log = new Tbllog;
+        $new_log->user_id = \Auth::user()->id;
+        $new_log->activity = "Delete Fungi";
+        $new_log->date = Carbon::now();
+        $new_log->save();
 
         $fungsi->delete();
 
@@ -310,6 +379,12 @@ class KnowledgeController extends Controller
         $info = TblknowledgeInfo::where('id', $id)->first();
 
         $info->delete();
+
+        $new_log = new Tbllog;
+        $new_log->user_id = \Auth::user()->id;
+        $new_log->activity = "Delete Information";
+        $new_log->date = Carbon::now();
+        $new_log->save();
 
         return redirect()->back()->with('status', 'Informasi berhasil dihapus.');
     }
@@ -330,6 +405,12 @@ class KnowledgeController extends Controller
         $edit->knowledge_name = $request->get('kategori');
 
         $edit->save();
+
+        $new_log = new Tbllog;
+        $new_log->user_id = \Auth::user()->id;
+        $new_log->activity = "Edit Knowledge";
+        $new_log->date = Carbon::now();
+        $new_log->save();
 
         return redirect()->back()->with('status', 'Knowledge berhasil di update');
 
@@ -352,6 +433,12 @@ class KnowledgeController extends Controller
         $edit->knowledge_id = $request->get('kategori');
 
         $edit->save();
+
+        $new_log = new Tbllog;
+        $new_log->user_id = \Auth::user()->id;
+        $new_log->activity = "Edit Fungsi";
+        $new_log->date = Carbon::now();
+        $new_log->save();
 
         return redirect()->back()->with('status', 'Fungsi berhasil di update');
     }
@@ -379,11 +466,23 @@ class KnowledgeController extends Controller
 
         $info->save();
 
+        $new_log = new Tbllog;
+        $new_log->user_id = \Auth::user()->id;
+        $new_log->activity = "Update Infromation";
+        $new_log->date = Carbon::now();
+        $new_log->save();
+
         $content = TblknowledgeContent::where('info_id', $id)->first();
 
         $content->content = $request->get('content');
 
         $content->save();
+
+        $new_log = new Tbllog;
+        $new_log->user_id = \Auth::user()->id;
+        $new_log->activity = "Update Content";
+        $new_log->date = Carbon::now();
+        $new_log->save();
 
         return redirect()->back()->with('status', 'Informasi berhasil di update');
 
@@ -394,5 +493,18 @@ class KnowledgeController extends Controller
         $knowledge = Tblrequest::with('kategori','child','user')->get();
 
         return $knowledge;
+    }
+
+    public function log()
+    {
+        $log = Tbllog::all();
+        $knowledge = Tblknowledge::with('child')->get();
+
+        return view('knowledge.log', ['logs' => $log, 'knowledges' => $knowledge]);
+    }
+
+    public function contact()
+    {
+        return view('knowledge.contact');
     }
 }

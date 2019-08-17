@@ -15,6 +15,9 @@
                     <div class="card-body">
                         {!! $content->content !!}
                     </div>
+                    <div class="card-footer">
+                        <span style="font-size:12px;">Created by {{ $content->user->username }}</span>
+                    </div>
                 </div>
             </div>
         </div>

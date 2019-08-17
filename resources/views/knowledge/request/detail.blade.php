@@ -28,6 +28,7 @@
                                 <input type="hidden" name="cat_id" value="{{ $req->knowledge_parent_id }}">
                                 <input type="hidden" name="fungsi_id" value="{{ $req->knowledge_child_id }}">
                                 <input type="hidden" name="id" value="{{ $req->id }}">
+                                <input type="hidden" name="user_id" value="{{ $req->user_id }}">
                                 <div class="form-group">
                                     <label for="user">User</label>
                                     <input type="text" name="user" class="form-control" value="{{ $req->user->full_name }}" readonly>
@@ -102,6 +103,8 @@
 @section('js')
     <script src="https://cdn.tiny.cloud/1/w57e5t6j6gjkeogxi4qvwewvg8qf7ujjg6qm7hhuty7w1bb8/tinymce/5/tinymce.min.js"></script>
     <script>
-        tinymce.init({selector:'textarea#content'});
+        $(document).ready(function() {
+            $('#content').cleditor();
+        });
     </script> 
 @endsection

@@ -96,10 +96,15 @@
 @endsection
 
 @section('js')
-    <script src="https://cdn.tiny.cloud/1/w57e5t6j6gjkeogxi4qvwewvg8qf7ujjg6qm7hhuty7w1bb8/tinymce/5/tinymce.min.js"></script>
+    {{-- <script src="https://cdn.tiny.cloud/1/w57e5t6j6gjkeogxi4qvwewvg8qf7ujjg6qm7hhuty7w1bb8/tinymce/5/tinymce.min.js"></script> --}}
     <script>
-        tinymce.init({selector:'textarea#content'});
-
+        // tinymce.init({selector:'textarea#content'});
+        // $(document).ready(function() {
+        //     $('#content').summernote();
+        // });
+        $(document).ready(function() {
+            $('#content').cleditor();
+        });
         $("#knowledge").on("change", function(){
             var knowledge = document.getElementById("knowledge").value;
             if(knowledge == "new") {

@@ -21,6 +21,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/test', 'KnowledgeController@test');
 
+//Contact
+Route::get('contact', 'KnowledgeController@contact')->name('contact');
+
 //Display Knowledge
 Route::get('/knowledge', 'KnowledgeController@index')->name('knowledge');
 Route::get('/knowledge/info/{id}', 'KnowledgeController@info')->name('knowledge.info');
@@ -62,3 +65,6 @@ Route::get('/knowledge/deleteInfo/{id}', 'KnowledgeController@deleteKnowledgeInf
 Route::post('/users/editUser', 'UserController@editUser')->name('users.editUser');
 Route::get('/users/deleteUser/{id}', 'UserController@deleteUser')->name('users.deleteUser');
 Route::resource("users", "UserController");
+
+//Knowledge Log
+Route::get('/knowledge/logs', 'KnowledgeController@log')->name('knowledge.log');
