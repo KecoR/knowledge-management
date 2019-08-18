@@ -39,7 +39,7 @@
                                                 <td>{{ $child->info_name }}</td>
                                                 <td>
                                                     <a href="{{ route('knowledge.content', $child->id) }}" class="btn btn-sm btn-primary">Detail</a>
-                                                    <a href="#" data-id="{{ $child->id }}" class="btn btn-sm btn-secondary editbutton">Edit</a>
+                                                    <a href="{{ route('knowledge.edit', $child->id) }}" class="btn btn-sm btn-secondary">Edit</a>
                                                     <a onclick="return confirm('Hapus Informasi ini?')"  href="{{ route('knowledge.deleteInfo', $child->id) }}" class="btn btn-sm btn-danger">Hapus</a>
                                                 </td>
                                             </tr>
@@ -77,7 +77,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="nama_kategori">Isi</label>
-                                    <textarea name="content" id="content" class="form-control"  tabindex="4" required></textarea>
+                                    <textarea name="content" id="ckeditor" class="form-control ckeditor"  tabindex="4" required></textarea>
                                 </div>
                             </div>
                         </div>
@@ -104,8 +104,8 @@
             $.get('/knowledge/getInfo/'+data_id, function(data){
                 $("#info_id").val(data.info.id);
                 $("#info").val(data.info.info_name);
-                $("#content").val(data.content.content);
-                $('#content').cleditor();
+                // $("#ckeditor").val(data.content.content);
+                $('#ckeditor').cleditor();
                 $("#editModal").modal('show');
             })
         });

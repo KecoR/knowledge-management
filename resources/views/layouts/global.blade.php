@@ -177,6 +177,7 @@
   <script src="{{ asset('assets/js/custom.js') }}"></script>
   <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
   <script src="{{ asset('cle/jquery.cleditor.js') }}"></script>
+  <script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
   <!-- <script src="assets/js/jquery.js"></script> -->
   <script>
   $(document).ready(function(){

@@ -44,7 +44,7 @@ Route::get('/knowledge/getKnowledge/{id}', 'KnowledgeController@getKnowledge');
 Route::post('/knowledge/knowledgeSave', 'KnowledgeController@knowledgeSave')->name('knowledge.knowledgeSave');
 Route::get('/knowledge/getChild/{id}', 'KnowledgeController@getChild');
 Route::post('/knowledge/childSave', 'KnowledgeController@childSave')->name('knowledge.childSave');
-Route::get('/knowledge/getInfo/{id}', 'KnowledgeController@getInfo');
+Route::get('/knowledge/getInfo/{id}', 'KnowledgeController@getInfo')->name('knowledge.edit');
 Route::post('/knowledge/infoSave', 'KnowledgeController@infoSave')->name('knowledge.infoSave');
 
 //Knowledge Request List

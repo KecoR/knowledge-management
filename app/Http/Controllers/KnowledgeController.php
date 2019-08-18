@@ -447,11 +447,16 @@ class KnowledgeController extends Controller
     {
         $info = TblknowledgeInfo::where('id', $id)->first();
         $content = TblknowledgeContent::where('info_id', $id)->first();
+        $knowledge = Tblknowledge::with('child')->get();
 
         $data = array(
             'info' => $info,
             'content' => $content
         );
+
+        // return $data;
+
+        return view('knowledge.manage.edit', ['datas' => $data, 'knowledges' => $knowledge]);
 
         return $data;
     }
