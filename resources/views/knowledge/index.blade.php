@@ -43,7 +43,7 @@
                 @else
                     <li class="menu-header">Request Knowledge</li>
                     <li class="dropdown nav-color">
-                        <a href="{{ route('knowledge.ask') }}" class="nav-link"><span>ASK Knowledge</span></a>
+                        <a href="{{ route('knowledge.ask') }}" class="nav-link"><span>Request Knowledge</span></a>
                     </li>
                     <li class="dropdown nav-color">
                         <a href="{{ route('knowledge.requestList') }}" class="nav-link"><span>Request List</span></a>
